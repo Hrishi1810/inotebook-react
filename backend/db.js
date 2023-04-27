@@ -1,9 +1,11 @@
 const mongo = require('mongoose');
 
-const mongoUrl = "mongodb://localhost:27017/";
+const mongoUrl = "mongodb://localhost:27017/?readPreference=primary"
 
 const connectToMongo =()=>{
-    mongo.connect(mongoUrl);
+    mongo.connect(mongoUrl, ()=>{
+        console.log("Connected!!!!!!!!!!!!");
+    })
 }
 
 module.exports = connectToMongo;
